@@ -3,275 +3,1389 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Términos y Condiciones - TCG Timer</title>
+  <meta name="theme-color" content="#04050a" />
+  <meta name="description" content="Términos y Condiciones de las aplicaciones de ILLITHID: TCG Timer y RYP Music." />
+  <title>Términos y Condiciones · ILLITHID</title>
+
+  <link rel="icon" type="image/jpeg" href="iconos-apps/illithid.jpeg" />
+
+  <!-- Imagen de fondo: se precarga para que aparezca sin parpadeos -->
+  <link rel="preload" as="image" href="iconos-apps/fondoterminosycondiciones.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-    *{
-      margin:0;
-      padding:0;
+    /* =========================================================
+       BASE
+       ========================================================= */
+    *,
+    *::before,
+    *::after{
       box-sizing:border-box;
     }
 
+    html{
+      background:#04050a;
+      scroll-behavior:smooth;
+    }
+
     body{
-      background:#050505;
-      color:white;
-      font-family:'Orbitron',sans-serif;
+      margin:0;
+      min-height:100vh;
+      background:transparent;
+      color:#eef0f6;
+      font-family:"Inter",system-ui,-apple-system,sans-serif;
+      -webkit-font-smoothing:antialiased;
       overflow-x:hidden;
-      background-image:
-      radial-gradient(circle at top left,#4a004f33,transparent 25%),
-      radial-gradient(circle at bottom right,#7a000033,transparent 25%);
     }
 
-    .container{
-      width:90%;
-      max-width:1000px;
-      margin:40px auto;
-      padding:30px;
-      background:#111;
-      border:2px solid #ffee00;
-      border-radius:20px;
-      box-shadow:0 0 30px rgba(255,238,0,0.15);
+    ::selection{
+      background:rgba(232,193,90,.28);
+      color:#fff;
     }
 
-    .title{
-      text-align:center;
-      font-size:42px;
-      color:#ffee00;
-      margin-bottom:10px;
-      text-shadow:0 0 10px rgba(255,238,0,0.4);
+    :focus-visible{
+      outline:2px solid rgba(232,193,90,.7);
+      outline-offset:3px;
     }
 
-    .subtitle{
-      text-align:center;
-      color:#ccc;
-      margin-bottom:40px;
-      font-size:14px;
+    /* =========================================================
+       FONDO
+       La imagen vive en iconos-apps/fondoterminosycondiciones.jpeg
+       ========================================================= */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:#04050a url("iconos-apps/fondoterminosycondiciones.jpeg") center / cover no-repeat;
     }
 
-    .section{
-      margin-bottom:35px;
-      padding:20px;
-      background:#181818;
-      border-left:5px solid #00ffcc;
-      border-radius:12px;
-      transition:0.3s;
+    .bg::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 460px at -8% -12%, rgba(3,4,8,.98) 0%, rgba(3,4,8,.86) 40%, transparent 70%),
+        radial-gradient(1100px 720px at 30% 6%, rgba(88,20,120,.26), transparent 62%),
+        radial-gradient(900px 620px at 88% 88%, rgba(0,120,220,.18), transparent 64%),
+        linear-gradient(180deg, rgba(4,5,10,.5) 0%, rgba(4,5,10,.72) 46%, rgba(4,5,10,.92) 100%);
     }
 
-    .section:hover{
-      transform:translateY(-2px);
-      box-shadow:0 0 15px rgba(0,255,204,0.15);
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(120% 100% at 50% 45%, transparent 32%, rgba(3,4,8,.55) 100%);
     }
 
-    .section h2{
-      color:#00ffcc;
-      margin-bottom:15px;
-      font-size:22px;
+    /* =========================================================
+       PANEL DE CRISTAL
+       ========================================================= */
+    .panel{
+      position:relative;
+      width:calc(100% - 40px);
+      max-width:920px;
+      margin:clamp(24px,6vw,64px) auto;
+      padding:clamp(24px,4.6vw,48px);
+      background:linear-gradient(180deg, rgba(12,13,20,.72), rgba(7,8,13,.66));
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:28px;
+      box-shadow:0 40px 100px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
+      backdrop-filter:blur(18px) saturate(120%);
+      -webkit-backdrop-filter:blur(18px) saturate(120%);
+      animation:rise .7s cubic-bezier(.22,.61,.36,1) both;
     }
 
-    .section p{
+    /* Línea decorativa superior */
+    .panel::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:50%;
+      width:min(260px,50%);
+      height:1px;
+      transform:translateX(-50%);
+      background:linear-gradient(90deg, transparent, rgba(232,193,90,.7), rgba(90,180,255,.55), transparent);
+      pointer-events:none;
+    }
+
+    @keyframes rise{
+      from{
+        opacity:0;
+        transform:translateY(14px);
+      }
+      to{
+        opacity:1;
+        transform:none;
+      }
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:26px;
+    }
+
+    .brand img{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center 42%;
+      border:1px solid rgba(232,193,90,.4);
+      box-shadow:0 0 24px rgba(232,193,90,.16);
+    }
+
+    .brand span{
+      padding-left:2px;
+      font-family:"Orbitron",sans-serif;
+      font-size:10.5px;
+      letter-spacing:.42em;
+      color:#dcc58c;
+    }
+
+    h1{
+      margin:0 0 14px;
+      font-family:"Orbitron",sans-serif;
+      font-size:clamp(27px,4.8vw,42px);
+      font-weight:600;
+      line-height:1.16;
+      letter-spacing:.01em;
+      background:linear-gradient(180deg, #ffffff, #c7ccdd);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      max-width:56ch;
+      margin:0 0 24px;
+      font-size:14.5px;
+      font-weight:300;
       line-height:1.7;
-      color:#ddd;
-      font-size:15px;
+      color:#a6a9b8;
     }
 
-    .warning{
-      border-left:5px solid #ff0033;
+    .ig-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      color:#d6d8e3;
+      font-size:12.5px;
+      text-decoration:none;
+      transition:border-color .25s ease, color .25s ease, box-shadow .25s ease, background .25s ease;
     }
 
-    .warning h2{
-      color:#ff4466;
+    .ig-link svg{
+      width:15px;
+      height:15px;
+      flex:none;
+      opacity:.85;
     }
 
-    ul{
-      margin-top:10px;
-      padding-left:20px;
+    .ig-link:hover{
+      border-color:rgba(232,193,90,.45);
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      box-shadow:0 0 24px rgba(232,193,90,.12);
     }
 
-    li{
-      margin-bottom:10px;
-      color:#ddd;
-      line-height:1.6;
+    /* =========================================================
+       LISTA DE APLICACIONES
+       ========================================================= */
+    .apps{
+      margin-top:38px;
     }
 
-    .footer{
-      margin-top:40px;
-      text-align:center;
-      color:#888;
-      font-size:13px;
+    .apps-label{
+      margin:0 0 12px;
+      font-family:"Orbitron",sans-serif;
+      font-size:9.5px;
+      font-weight:500;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      color:#7d8090;
     }
 
-    .badge{
-      display:inline-block;
-      background:#ffee00;
-      color:black;
-      padding:6px 12px;
+    .app{
+      position:relative;
+      border:1px solid rgba(255,255,255,.08);
       border-radius:20px;
+      background:rgba(255,255,255,.022);
+      overflow:hidden;
+      scroll-margin-top:24px;
+      transition:border-color .3s ease, background .3s ease, box-shadow .35s ease;
+    }
+
+    .app + .app{
+      margin-top:12px;
+    }
+
+    .app:hover{
+      border-color:rgba(255,255,255,.15);
+      background:rgba(255,255,255,.04);
+    }
+
+    /* Barra de acento que aparece al abrir */
+    .app::before{
+      content:"";
+      position:absolute;
+      top:14px;
+      bottom:14px;
+      left:0;
+      width:2px;
+      border-radius:2px;
+      background:linear-gradient(180deg, var(--accent), transparent);
+      opacity:0;
+      transition:opacity .3s ease;
+      pointer-events:none;
+    }
+
+    .app.open{
+      border-color:rgba(255,255,255,.16);
+      background:rgba(255,255,255,.045);
+      box-shadow:0 24px 60px rgba(0,0,0,.4);
+    }
+
+    .app.open::before{
+      opacity:.9;
+    }
+
+    /* Botón que abre y cierra cada aplicación */
+    .app-toggle{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      width:100%;
+      padding:16px 18px;
+      border:0;
+      background:transparent;
+      color:inherit;
+      font:inherit;
+      text-align:left;
+      cursor:pointer;
+    }
+
+    .app-toggle:focus-visible{
+      outline:2px solid rgba(232,193,90,.65);
+      outline-offset:-4px;
+      border-radius:16px;
+    }
+
+    .app-icon{
+      position:relative;
+      flex:none;
+      width:64px;
+      height:64px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 10px 26px rgba(0,0,0,.45);
+      transition:border-color .3s ease, box-shadow .35s ease;
+    }
+
+    .app-icon img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .app.open .app-icon{
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px var(--accent), 0 12px 32px var(--glow);
+    }
+
+    .app-meta{
+      display:flex;
+      flex:1;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+
+    .app-name{
+      font-family:"Orbitron",sans-serif;
+      font-size:15.5px;
+      font-weight:600;
+      letter-spacing:.04em;
+      color:#f2f3f8;
+    }
+
+    .app-desc{
+      font-size:12.5px;
+      font-weight:300;
+      line-height:1.5;
+      color:#9497a7;
+    }
+
+    .app-cta{
+      display:flex;
+      flex:none;
+      align-items:center;
+      gap:10px;
+      color:#8e91a1;
+      transition:color .25s ease;
+    }
+
+    .cta-text{
+      font-family:"Orbitron",sans-serif;
+      font-size:9.5px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    .chevron{
+      width:18px;
+      height:18px;
+      transition:transform .4s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .app:hover .app-cta{
+      color:#d8dae4;
+    }
+
+    .app.open .chevron{
+      transform:rotate(180deg);
+    }
+
+    /* =========================================================
+       ACORDEÓN (animación de apertura)
+       ========================================================= */
+    .app-panel{
+      display:grid;
+      grid-template-rows:0fr;
+      transition:grid-template-rows .5s cubic-bezier(.22,.61,.36,1);
+    }
+
+    .app-panel-inner{
+      min-height:0;
+      overflow:hidden;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity .4s ease, visibility 0s linear .5s;
+    }
+
+    .app.open .app-panel{
+      grid-template-rows:1fr;
+    }
+
+    .app.open .app-panel-inner{
+      opacity:1;
+      visibility:visible;
+      transition:opacity .5s ease .1s, visibility 0s linear 0s;
+    }
+
+    /* =========================================================
+       CONTENIDO LEGAL
+       ========================================================= */
+    .terms{
+      margin:0 4px;
+      padding:24px 22px 22px;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+
+    .doc-kicker{
+      margin:0 0 8px;
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+
+    .doc-title{
+      margin:0 0 6px;
+      font-family:"Orbitron",sans-serif;
+      font-size:clamp(18px,2.6vw,22px);
+      font-weight:500;
+      letter-spacing:.01em;
+      color:#f2f3f8;
+    }
+
+    .doc-date{
+      margin:0;
       font-size:12px;
-      font-weight:bold;
-      margin-bottom:20px;
+      font-weight:300;
+      color:#8b8e9d;
     }
 
-    .highlight{
-      color:#ffee00;
-      font-weight:bold;
+    .clause{
+      margin-top:24px;
+      padding-top:24px;
+      border-top:1px solid rgba(255,255,255,.06);
     }
 
-    @media(max-width:700px){
+    .clause h3{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      margin:0 0 10px;
+      font-family:"Inter",sans-serif;
+      font-size:14.5px;
+      font-weight:500;
+      line-height:1.45;
+      letter-spacing:0;
+      color:#eef0f6;
+    }
 
-      .container{
-        width:95%;
-        padding:20px;
+    .clause h3 .num{
+      flex:none;
+      min-width:20px;
+      padding-top:1px;
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      font-weight:500;
+      letter-spacing:.06em;
+      color:var(--accent);
+      opacity:.9;
+    }
+
+    .clause p{
+      margin:0;
+      font-size:14px;
+      font-weight:300;
+      line-height:1.78;
+      color:#b4b7c4;
+    }
+
+    .clause p + p{
+      margin-top:10px;
+    }
+
+    .clause strong{
+      font-weight:500;
+      color:#e6e8f0;
+    }
+
+    .clause ul{
+      display:grid;
+      gap:9px;
+      margin:12px 0 0;
+      padding:0;
+      list-style:none;
+    }
+
+    .clause li{
+      position:relative;
+      padding-left:18px;
+      font-size:13.5px;
+      font-weight:300;
+      line-height:1.68;
+      color:#b4b7c4;
+    }
+
+    .clause li::before{
+      content:"";
+      position:absolute;
+      top:.66em;
+      left:3px;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:var(--accent);
+      opacity:.65;
+    }
+
+    /* Separa un párrafo que venga después de una lista */
+    .clause ul + p{
+      margin-top:12px;
+    }
+
+    /* Apartados de advertencia */
+    .clause.clause-important{
+      padding:18px 18px 18px 20px;
+      border:1px solid rgba(255,110,125,.16);
+      border-left:2px solid rgba(255,110,125,.55);
+      border-radius:0 14px 14px 0;
+      background:linear-gradient(90deg, rgba(255,92,108,.055), transparent 75%);
+    }
+
+    .clause-important h3 .num{
+      color:#ff8b98;
+    }
+
+    .tag-important{
+      display:inline-block;
+      margin-bottom:10px;
+      padding:4px 9px;
+      border:1px solid rgba(255,110,125,.32);
+      border-radius:999px;
+      font-family:"Orbitron",sans-serif;
+      font-size:8.5px;
+      letter-spacing:.2em;
+      text-transform:uppercase;
+      color:#ff9aa5;
+    }
+
+    /* Enlaces de contacto */
+    .contact{
+      margin-top:14px;
+    }
+
+    .contact-link{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      max-width:100%;
+      padding:9px 14px;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      color:#d6d8e3;
+      font-size:13px;
+      text-decoration:none;
+      overflow-wrap:anywhere;
+      transition:border-color .25s ease, color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+
+    .contact-link svg{
+      width:15px;
+      height:15px;
+      flex:none;
+      opacity:.8;
+    }
+
+    .contact-link:hover{
+      border-color:var(--accent);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      box-shadow:0 0 24px var(--glow);
+    }
+
+    /* Acciones al final de cada documento */
+    .panel-actions{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+
+    .text-btn{
+      padding:0;
+      border:0;
+      background:none;
+      color:#8b8e9d;
+      font-family:"Inter",sans-serif;
+      font-size:12px;
+      font-weight:400;
+      text-decoration:none;
+      cursor:pointer;
+      transition:color .25s ease;
+    }
+
+    .text-btn:hover{
+      color:var(--accent);
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px 16px;
+      margin-top:40px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+
+    .foot-brand{
+      display:flex;
+      align-items:center;
+      gap:9px;
+    }
+
+    .foot-brand img{
+      width:24px;
+      height:24px;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center 42%;
+      border:1px solid rgba(232,193,90,.3);
+      opacity:.9;
+    }
+
+    .foot-brand span{
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:.32em;
+      color:#b9a878;
+    }
+
+    .copy,
+    .credit{
+      margin:0;
+      font-size:11px;
+      font-weight:300;
+      color:#7f8291;
+    }
+
+    .credit{
+      margin-left:auto;
+    }
+
+    .credit a{
+      color:#c9ccd8;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,.15);
+      transition:color .25s ease, border-color .25s ease;
+    }
+
+    .credit a:hover{
+      color:#e9c46a;
+      border-color:#e9c46a;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width:700px){
+      .bg{
+        background-position:66% 50%;
       }
 
-      .title{
-        font-size:30px;
+      .panel{
+        width:calc(100% - 24px);
+        margin:14px auto 24px;
+        padding:22px 18px 20px;
+        border-radius:22px;
       }
 
-      .section h2{
-        font-size:19px;
+      .lead{
+        font-size:13.5px;
       }
 
+      .apps{
+        margin-top:30px;
+      }
+
+      .app-toggle{
+        gap:13px;
+        padding:13px;
+      }
+
+      .app-icon{
+        width:56px;
+        height:56px;
+        border-radius:14px;
+      }
+
+      .app-name{
+        font-size:14px;
+      }
+
+      .app-desc{
+        font-size:11.5px;
+      }
+
+      .cta-text{
+        display:none;
+      }
+
+      .terms{
+        margin:0;
+        padding:20px 12px 18px;
+      }
+
+      .site-footer{
+        gap:8px 14px;
+      }
+
+      .copy{
+        order:3;
+        width:100%;
+      }
+
+      .credit{
+        margin-left:auto;
+      }
+    }
+
+    @media (max-width:420px){
+      .app-icon{
+        width:52px;
+        height:52px;
+      }
+
+      .app-desc{
+        font-size:11px;
+      }
+    }
+
+    /* Modo de alto contraste: el degradado del título no debe ocultarlo */
+    @media (forced-colors:active){
+      h1{
+        background:none;
+        color:CanvasText;
+        -webkit-text-fill-color:CanvasText;
+      }
+    }
+
+    /* Respeta la preferencia de menos movimiento */
+    @media (prefers-reduced-motion:reduce){
+      html{
+        scroll-behavior:auto;
+      }
+
+      *,
+      *::before,
+      *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <!-- Fondo decorativo -->
+  <div class="bg" aria-hidden="true"></div>
 
-    <div class="badge">TCG TIMER · LEGAL</div>
+  <main class="panel" id="inicio">
 
-    <h1 class="title">TÉRMINOS Y CONDICIONES</h1>
+    <!-- =====================================================
+         HERO / PRESENTACIÓN
+         ===================================================== -->
+    <header class="hero">
+      <div class="brand">
+        <img src="iconos-apps/illithid.jpeg" alt="Logotipo de ILLITHID" width="42" height="42" decoding="async" />
+        <span>ILLITHID</span>
+      </div>
 
-    <p class="subtitle">
-      Última actualización: 2026
-    </p>
+      <h1>Términos y Condiciones</h1>
 
-    <div class="section">
-      <h2>1. Uso de la Aplicación</h2>
-
-      <p>
-        <span class="highlight">TCG Timer</span> es una aplicación diseñada
-        exclusivamente para asistir partidas de juegos de cartas (TCG),
-        proporcionando herramientas como cronómetro, contador de vida,
-        marcadores y lanzamiento de dados.
+      <p class="lead">
+        Documentos legales de nuestras aplicaciones. Elige una app para leer
+        sus términos completos sin salir de esta página.
       </p>
 
-      <p>
-        El uso de la aplicación es completamente voluntario y bajo responsabilidad
-        del usuario.
+      <a class="ig-link"
+         href="https://www.instagram.com/illithiddev"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5.5" />
+          <circle cx="12" cy="12" r="4.2" />
+          <circle cx="17.4" cy="6.6" r="1.05" fill="currentColor" stroke="none" />
+        </svg>
+        <span>@illithiddev</span>
+      </a>
+    </header>
+
+    <!-- =====================================================
+         APLICACIONES
+         Cada <article class="app"> es una app con su documento.
+         El atributo data-app es el enlace directo (#tcgtimer, etc.)
+         ===================================================== -->
+    <section class="apps" aria-label="Aplicaciones">
+
+      <p class="apps-label">Aplicaciones</p>
+
+      <!-- ================= TCG TIMER ================= -->
+      <article class="app" data-app="tcgtimer" style="--accent:#f2c94c; --glow:rgba(242,201,76,.28);">
+        <button class="app-toggle"
+                type="button"
+                id="tab-tcgtimer"
+                aria-expanded="false"
+                aria-controls="panel-tcgtimer">
+          <span class="app-icon">
+            <img src="iconos-apps/tcgtimer.jpeg"
+                 alt="Icono de la aplicación TCG Timer"
+                 width="64" height="64"
+                 decoding="async" />
+          </span>
+
+          <span class="app-meta">
+            <span class="app-name">TCG Timer</span>
+            <span class="app-desc">Cronómetro y herramientas para juegos de cartas</span>
+          </span>
+
+          <span class="app-cta" aria-hidden="true">
+            <span class="cta-text">Ver términos</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="app-panel"
+             id="panel-tcgtimer"
+             role="region"
+             aria-labelledby="tab-tcgtimer"
+             aria-hidden="true">
+          <div class="app-panel-inner">
+            <div class="terms">
+
+              <header class="doc-head">
+                <p class="doc-kicker">TCG Timer</p>
+                <h2 class="doc-title">Términos y Condiciones</h2>
+                <p class="doc-date">Última actualización: 2026</p>
+              </header>
+
+              <section class="clause">
+                <h3><span class="num">01</span>Uso de la Aplicación</h3>
+                <p>
+                  <strong>TCG Timer</strong> es una aplicación diseñada exclusivamente
+                  para asistir partidas de juegos de cartas (TCG), proporcionando
+                  herramientas como cronómetro, contador de vida, marcadores y
+                  lanzamiento de dados.
+                </p>
+                <p>
+                  El uso de la aplicación es completamente voluntario y bajo
+                  responsabilidad del usuario.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">02</span>Responsabilidad del Usuario</h3>
+                <p>
+                  El usuario acepta utilizar la aplicación de manera responsable y
+                  conforme a las leyes locales aplicables.
+                </p>
+                <ul>
+                  <li>No utilizar la aplicación para actividades ilegales.</li>
+                  <li>No utilizar la aplicación para engañar, manipular resultados o generar conflictos.</li>
+                  <li>No responsabilizar al desarrollador por pérdidas derivadas del uso incorrecto de la aplicación.</li>
+                </ul>
+              </section>
+
+              <section class="clause clause-important">
+                <span class="tag-important">Importante</span>
+                <h3><span class="num">03</span>Limitación de Responsabilidad</h3>
+                <p>
+                  El desarrollador de <strong>TCG Timer</strong> no será responsable por:
+                </p>
+                <ul>
+                  <li>Robos, pérdidas o daños ocurridos durante el uso de la aplicación.</li>
+                  <li>Disputas entre jugadores o terceros.</li>
+                  <li>Pérdidas económicas, personales o materiales.</li>
+                  <li>Errores humanos durante partidas o torneos.</li>
+                  <li>Mal uso de la aplicación por parte de usuarios.</li>
+                  <li>Interrupciones, fallos técnicos o incompatibilidades de dispositivos.</li>
+                </ul>
+                <p>
+                  La aplicación se proporciona <strong>“tal cual”</strong>, sin garantías
+                  de funcionamiento ininterrumpido o libre de errores.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">04</span>Contenido y Propiedad</h3>
+                <p>
+                  Todos los elementos visuales, diseño, interfaz y funcionalidades de
+                  <strong>TCG Timer</strong> pertenecen a su desarrollador, salvo
+                  elementos de terceros utilizados legalmente.
+                </p>
+                <p>
+                  No está permitido copiar, redistribuir o modificar la aplicación sin
+                  autorización.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">05</span>Privacidad</h3>
+                <p>
+                  TCG Timer no recopila información personal sensible del usuario.
+                </p>
+                <p>
+                  La aplicación puede almacenar configuraciones localmente en el
+                  dispositivo para mejorar la experiencia del usuario.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">06</span>Publicidad</h3>
+                <p>
+                  La aplicación puede mostrar anuncios proporcionados por servicios
+                  externos como Google AdMob.
+                </p>
+                <p>
+                  El desarrollador no controla el contenido específico de los anuncios
+                  mostrados.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">07</span>Modificaciones</h3>
+                <p>
+                  Estos términos pueden actualizarse en cualquier momento sin previo
+                  aviso.
+                </p>
+                <p>
+                  El uso continuo de la aplicación implica la aceptación de los términos
+                  actualizados.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">08</span>Contacto</h3>
+                <p>
+                  Para consultas relacionadas con la aplicación, soporte o reportes:
+                </p>
+                <div class="contact">
+                  <a class="contact-link" href="mailto:worrx.cl@gmail.com">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                      <rect x="3" y="5" width="18" height="14" rx="3" />
+                      <path d="M3.5 7l8.5 6 8.5-6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span>worrx.cl@gmail.com</span>
+                  </a>
+                </div>
+              </section>
+
+              <div class="panel-actions">
+                <button class="text-btn" type="button" data-close>Cerrar documento</button>
+                <a class="text-btn" href="#inicio">Volver arriba ↑</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ================= RYP MUSIC ================= -->
+      <article class="app" data-app="rypmusic" style="--accent:#5ee6a8; --glow:rgba(120,230,180,.26);">
+        <button class="app-toggle"
+                type="button"
+                id="tab-rypmusic"
+                aria-expanded="false"
+                aria-controls="panel-rypmusic">
+          <span class="app-icon">
+            <img src="iconos-apps/rypmusic.jpeg"
+                 alt="Icono de la aplicación RYP Music"
+                 width="64" height="64"
+                 decoding="async" />
+          </span>
+
+          <span class="app-meta">
+            <span class="app-name">RYP Music</span>
+            <span class="app-desc">Reproductor de música offline para tu dispositivo</span>
+          </span>
+
+          <span class="app-cta" aria-hidden="true">
+            <span class="cta-text">Ver términos</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+
+        <div class="app-panel"
+             id="panel-rypmusic"
+             role="region"
+             aria-labelledby="tab-rypmusic"
+             aria-hidden="true">
+          <div class="app-panel-inner">
+            <div class="terms">
+
+              <header class="doc-head">
+                <p class="doc-kicker">RYP Music</p>
+                <h2 class="doc-title">Términos y Condiciones</h2>
+                <p class="doc-date">Última actualización: 10 de noviembre de 2026</p>
+              </header>
+
+              <section class="clause">
+                <h3><span class="num">01</span>Descripción del Servicio</h3>
+                <p>
+                  Bienvenido a RYPMusic. Al descargar, instalar o utilizar esta
+                  aplicación, aceptas los presentes Términos y Condiciones.
+                </p>
+                <p>
+                  <strong>RYPMusic</strong> es un reproductor de música offline que
+                  permite reproducir archivos de audio almacenados localmente en el
+                  dispositivo del usuario. La aplicación no proporciona contenido
+                  musical ni servicios de streaming.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">02</span>Licencia de Uso</h3>
+                <p>
+                  Se concede al usuario una licencia limitada, personal, no exclusiva e
+                  intransferible para utilizar RYPMusic en dispositivos compatibles.
+                </p>
+                <p>El usuario no podrá:</p>
+                <ul>
+                  <li>Modificar, descompilar o realizar ingeniería inversa de la aplicación.</li>
+                  <li>Distribuir copias no autorizadas de la aplicación.</li>
+                  <li>Utilizar la aplicación con fines ilícitos.</li>
+                </ul>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">03</span>Contenido del Usuario</h3>
+                <p>
+                  RYPMusic únicamente reproduce los archivos de música almacenados en
+                  el dispositivo del usuario.
+                </p>
+                <p>
+                  El usuario es el único responsable de contar con los derechos
+                  necesarios para utilizar y reproducir los contenidos almacenados en
+                  su dispositivo.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">04</span>Compras y Pagos</h3>
+                <p>
+                  RYPMusic puede ofrecerse como una aplicación de pago a través de
+                  plataformas autorizadas como Google Play.
+                </p>
+                <p>
+                  Todas las compras están sujetas a las políticas y condiciones de la
+                  plataforma de distribución correspondiente.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">05</span>Donaciones</h3>
+                <p>
+                  La aplicación puede incluir un enlace voluntario de donación mediante
+                  PayPal u otros servicios externos.
+                </p>
+                <p>
+                  Las donaciones son completamente opcionales y no desbloquean funciones
+                  adicionales dentro de la aplicación.
+                </p>
+                <p>
+                  RYPMusic no procesa directamente los pagos realizados mediante
+                  servicios externos.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">06</span>Disponibilidad</h3>
+                <p>
+                  Aunque se realizan esfuerzos para mantener la aplicación operativa y
+                  actualizada, no se garantiza que la aplicación esté libre de errores o
+                  interrupciones.
+                </p>
+              </section>
+
+              <section class="clause clause-important">
+                <span class="tag-important">Importante</span>
+                <h3><span class="num">07</span>Limitación de Responsabilidad</h3>
+                <p>
+                  RYPMusic se proporciona <strong>“tal como está”</strong>.
+                </p>
+                <p>
+                  En la máxima medida permitida por la ley, el desarrollador no será
+                  responsable por daños directos, indirectos, incidentales o derivados
+                  del uso o imposibilidad de uso de la aplicación.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">08</span>Actualizaciones</h3>
+                <p>
+                  La aplicación podrá recibir actualizaciones destinadas a corregir
+                  errores, mejorar el rendimiento, ampliar la compatibilidad y añadir
+                  nuevas funciones.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">09</span>Privacidad</h3>
+                <p>
+                  RYPMusic está diseñada para funcionar principalmente de manera local y
+                  offline.
+                </p>
+                <p>
+                  Cualquier tratamiento de datos personales se regirá por la Política de
+                  Privacidad correspondiente.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">10</span>Modificaciones de los Términos</h3>
+                <p>
+                  Estos Términos y Condiciones podrán modificarse ocasionalmente. Las
+                  versiones actualizadas se publicarán en los canales oficiales del
+                  proyecto.
+                </p>
+              </section>
+
+              <section class="clause">
+                <h3><span class="num">11</span>Contacto</h3>
+                <p>
+                  Si tienes preguntas sobre estos Términos y Condiciones, puedes
+                  contactar al desarrollador a través de los medios de contacto
+                  publicados en la ficha oficial de la aplicación.
+                </p>
+                <div class="contact">
+                  <a class="contact-link"
+                     href="https://www.instagram.com/illithiddev"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5.5" />
+                      <circle cx="12" cy="12" r="4.2" />
+                      <circle cx="17.4" cy="6.6" r="1.05" fill="currentColor" stroke="none" />
+                    </svg>
+                    <span>@illithiddev</span>
+                  </a>
+                </div>
+              </section>
+
+              <div class="panel-actions">
+                <button class="text-btn" type="button" data-close>Cerrar documento</button>
+                <a class="text-btn" href="#inicio">Volver arriba ↑</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Para agregar otra aplicación, copia la plantilla
+           que está al final de este archivo (busca "PLANTILLA"). -->
+
+    </section>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+    <footer class="site-footer">
+      <div class="foot-brand">
+        <img src="iconos-apps/illithid.jpeg" alt="" width="24" height="24" decoding="async" />
+        <span>ILLITHID</span>
+      </div>
+
+      <p class="copy">© 2026 ILLITHID · Todos los derechos reservados.</p>
+
+      <p class="credit">
+        Desarrollado por
+        <a href="https://www.instagram.com/illithiddev" target="_blank" rel="noopener noreferrer">@illithiddev</a>
       </p>
-    </div>
+    </footer>
 
-    <div class="section">
-      <h2>2. Responsabilidad del Usuario</h2>
+  </main>
 
-      <p>
-        El usuario acepta utilizar la aplicación de manera responsable y conforme
-        a las leyes locales aplicables.
-      </p>
+  <!-- =========================================================
+       PLANTILLA PARA UNA NUEVA APLICACIÓN
+       =========================================================
+       Para agregar los términos de otra app:
 
-      <ul>
-        <li>No utilizar la aplicación para actividades ilegales.</li>
-        <li>No utilizar la aplicación para engañar, manipular resultados o generar conflictos.</li>
-        <li>No responsabilizar al desarrollador por pérdidas derivadas del uso incorrecto de la aplicación.</li>
-      </ul>
-    </div>
+       1. Copia el <article> que está dentro de esta <template>
+          y pégalo justo debajo de la última app (dentro de .apps).
+       2. Cambia estos valores en la tarjeta:
+          data-app="nueva-app", id="tab-nueva-app",
+          aria-controls="panel-nueva-app", id="panel-nueva-app",
+          aria-labelledby="tab-nueva-app", el icono, el nombre,
+          la descripción y los colores --accent / --glow.
+       3. Reemplaza los apartados de ejemplo por el texto real.
+          Numera los apartados con <span class="num">01</span>, 02, etc.
 
-    <div class="section warning">
-      <h2>3. Limitación de Responsabilidad</h2>
+       No hace falta tocar el JavaScript: detecta automáticamente
+       cualquier <article class="app">.
+       ========================================================= -->
+  <template id="plantilla-app">
+    <article class="app" data-app="nueva-app" style="--accent:#7dd3fc; --glow:rgba(125,211,252,.25);">
 
-      <p>
-        El desarrollador de <span class="highlight">TCG Timer</span> no será responsable por:
-      </p>
+      <button class="app-toggle"
+              type="button"
+              id="tab-nueva-app"
+              aria-expanded="false"
+              aria-controls="panel-nueva-app">
+        <span class="app-icon">
+          <img src="iconos-apps/ICONO.jpeg"
+               alt="Icono de la aplicación Nueva App"
+               width="64" height="64"
+               loading="lazy"
+               decoding="async" />
+        </span>
 
-      <ul>
-        <li>Robos, pérdidas o daños ocurridos durante el uso de la aplicación.</li>
-        <li>Disputas entre jugadores o terceros.</li>
-        <li>Pérdidas económicas, personales o materiales.</li>
-        <li>Errores humanos durante partidas o torneos.</li>
-        <li>Mal uso de la aplicación por parte de usuarios.</li>
-        <li>Interrupciones, fallos técnicos o incompatibilidades de dispositivos.</li>
-      </ul>
+        <span class="app-meta">
+          <span class="app-name">Nueva App</span>
+          <span class="app-desc">Descripción breve de la aplicación</span>
+        </span>
 
-      <p>
-        La aplicación se proporciona <span class="highlight">“tal cual”</span>,
-        sin garantías de funcionamiento ininterrumpido o libre de errores.
-      </p>
-    </div>
+        <span class="app-cta" aria-hidden="true">
+          <span class="cta-text">Ver términos</span>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </button>
 
-    <div class="section">
-      <h2>4. Contenido y Propiedad</h2>
+      <div class="app-panel"
+           id="panel-nueva-app"
+           role="region"
+           aria-labelledby="tab-nueva-app"
+           aria-hidden="true">
+        <div class="app-panel-inner">
+          <div class="terms">
 
-      <p>
-        Todos los elementos visuales, diseño, interfaz y funcionalidades de
-        <span class="highlight">TCG Timer</span> pertenecen a su desarrollador,
-        salvo elementos de terceros utilizados legalmente.
-      </p>
+            <header class="doc-head">
+              <p class="doc-kicker">Nueva App</p>
+              <h2 class="doc-title">Términos y Condiciones</h2>
+              <p class="doc-date">Última actualización: 2026</p>
+            </header>
 
-      <p>
-        No está permitido copiar, redistribuir o modificar la aplicación sin autorización.
-      </p>
-    </div>
+            <section class="clause">
+              <h3><span class="num">01</span>Uso de la Aplicación</h3>
+              <p>Escribe aquí el primer apartado.</p>
+            </section>
 
-    <div class="section">
-      <h2>5. Privacidad</h2>
+            <section class="clause clause-important">
+              <span class="tag-important">Importante</span>
+              <h3><span class="num">02</span>Limitación de Responsabilidad</h3>
+              <p>Usa la clase clause-important para los avisos destacados.</p>
+            </section>
 
-      <p>
-        TCG Timer no recopila información personal sensible del usuario.
-      </p>
+            <div class="panel-actions">
+              <button class="text-btn" type="button" data-close>Cerrar documento</button>
+              <a class="text-btn" href="#inicio">Volver arriba ↑</a>
+            </div>
 
-      <p>
-        La aplicación puede almacenar configuraciones localmente en el dispositivo
-        para mejorar la experiencia del usuario.
-      </p>
-    </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
 
-    <div class="section">
-      <h2>6. Publicidad</h2>
+  <script>
+    /* =========================================================
+       ACORDEÓN DE TÉRMINOS
+       Funciona con cualquier <article class="app"> que tenga:
+         - un .app-toggle
+         - un .app-panel
+       No hay que modificar este código al agregar una app nueva.
+       ========================================================= */
+    (function () {
+      const apps = Array.from(document.querySelectorAll(".app"));
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const scrollBehavior = prefersReducedMotion ? "auto" : "smooth";
 
-      <p>
-        La aplicación puede mostrar anuncios proporcionados por servicios externos
-        como Google AdMob.
-      </p>
+      /* Cambia el hash sin romperse en file://, donde algunos navegadores
+         bloquean history.replaceState. */
+      function replaceHash(hash) {
+        try {
+          const url = hash ? "#" + hash : location.pathname + location.search;
+          history.replaceState(null, "", url);
+        } catch (error) {
+          /* Sin problema: el acordeón sigue funcionando. */
+        }
+      }
 
-      <p>
-        El desarrollador no controla el contenido específico de los anuncios mostrados.
-      </p>
-    </div>
+      /* Abre o cierra una app y sincroniza sus atributos de accesibilidad. */
+      function setState(app, open) {
+        const toggle = app.querySelector(".app-toggle");
+        const panel = app.querySelector(".app-panel");
+        const ctaText = app.querySelector(".cta-text");
 
-    <div class="section">
-      <h2>7. Modificaciones</h2>
+        app.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+        panel.setAttribute("aria-hidden", String(!open));
 
-      <p>
-        Estos términos pueden actualizarse en cualquier momento sin previo aviso.
-      </p>
+        if (ctaText) {
+          ctaText.textContent = open ? "Ocultar" : "Ver términos";
+        }
+      }
 
-      <p>
-        El uso continuo de la aplicación implica la aceptación de los términos actualizados.
-      </p>
-    </div>
+      /* Quita el hash de la URL si pertenece a esta app. */
+      function clearHash(app) {
+        if (location.hash === "#" + app.dataset.app) {
+          replaceHash("");
+        }
+      }
 
-    <div class="section">
-      <h2>8. Contacto</h2>
+      /* Abre una app desde un enlace directo (#tcgtimer, #rypmusic). */
+      function openFromHash() {
+        const target = location.hash.slice(1);
+        if (!target) return;
 
-      <p>
-        Para consultas relacionadas con la aplicación, soporte o reportes:
-      </p>
+        const app = apps.find(function (item) {
+          return item.dataset.app === target;
+        });
 
-      <p style="margin-top:10px;">
-        📧 worrx.cl@gmail.com
-      </p>
+        if (!app) return;
 
-    </div>
+        apps.forEach(function (item) {
+          setState(item, item === app);
+        });
 
-    <div class="footer">
-      © 2026 TCG Timer · Todos los derechos reservados.
-    </div>
+        requestAnimationFrame(function () {
+          app.scrollIntoView({ behavior: scrollBehavior, block: "start" });
+        });
+      }
 
-  </div>
+      /* Clic en la tarjeta: abre una y cierra el resto. */
+      apps.forEach(function (app) {
+        const toggle = app.querySelector(".app-toggle");
+
+        toggle.addEventListener("click", function () {
+          const willOpen = !app.classList.contains("open");
+
+          apps.forEach(function (item) {
+            setState(item, item === app ? willOpen : false);
+          });
+
+          if (willOpen) {
+            replaceHash(app.dataset.app);
+
+            /* En móvil, acompaña el despliegue con un scroll suave. */
+            if (window.matchMedia("(max-width: 700px)").matches) {
+              requestAnimationFrame(function () {
+                app.scrollIntoView({ behavior: scrollBehavior, block: "start" });
+              });
+            }
+          } else {
+            clearHash(app);
+          }
+        });
+      });
+
+      /* Botones "Cerrar documento". */
+      document.querySelectorAll("[data-close]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          const app = button.closest(".app");
+          if (!app) return;
+
+          setState(app, false);
+          clearHash(app);
+          app.querySelector(".app-toggle").focus({ preventScroll: true });
+        });
+      });
+
+      /* Tecla Escape: cierra el documento abierto. */
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+
+        const openApp = apps.find(function (app) {
+          return app.classList.contains("open");
+        });
+
+        if (!openApp) return;
+
+        setState(openApp, false);
+        clearHash(openApp);
+        openApp.querySelector(".app-toggle").focus({ preventScroll: true });
+      });
+
+      /* Enlaces directos al cargar la página o al cambiar el hash. */
+      window.addEventListener("hashchange", openFromHash);
+      openFromHash();
+    })();
+  </script>
 
 </body>
 </html>
